@@ -821,13 +821,6 @@
       border-radius: 24px;
     }
 
-    .cs-media img {
-      width: 100%;
-      height: 100%;
-      /* object-fit: cover; */
-      border-radius: 16px;
-    }
-
     .cs-body {
       display: flex;
       flex-direction: column;
@@ -913,19 +906,38 @@
       border-radius: 14px;
     }
 
-    .cs-media {
-      width: 100%;
-      height: 220px;
-      overflow: hidden;
-      border-radius: 12px;
-    }
 
-    .cs-media img {
-      width: 100%;
-      height: 100%;
-      /* object-fit: cover; */
-      display: block;
-    }
+
+
+
+
+.cs-media {
+  width: 100%;
+  height: 220px; /* You can keep fixed height for layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff; /* avoid black space if image smaller */
+}
+
+.cs-media img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain; /* ensures no stretching */
+  border-radius: 12px;
+  display: block;
+}
+
+
+
+
+
+
+
 
     .cs-body {
       padding: 6px 4px 0;
@@ -1104,28 +1116,23 @@
       align-items: stretch;
     }
 
+    .case-body>div:last-child {
+      display: flex;
+      align-items: stretch;
+    }
 
-
-
-.case-body > div:last-child {
-  display: flex;
-  align-items: stretch;
-}
-
-.case-body > div:last-child img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* ensures full image is visible without zoom */
-  object-position: center; /* keeps subject centered */
-  border-radius: 14px;
-  border: 1px solid #e7efea;
-  box-shadow: 0 8px 24px rgba(10, 20, 30, 0.08);
-  display: block;
-}
-
-
-
-
+    .case-body>div:last-child img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* ensures full image is visible without zoom */
+      object-position: center;
+      /* keeps subject centered */
+      border-radius: 14px;
+      border: 1px solid #e7efea;
+      box-shadow: 0 8px 24px rgba(10, 20, 30, 0.08);
+      display: block;
+    }
 
     .quote {
       background: #f2faf7;
@@ -2690,8 +2697,7 @@
 
             <article class="cs-card">
               <div class="cs-media">
-                <img src="./case_study/claim_dashboard.jpg"
-                  alt="Analytics" />
+                <img src="./case_study/claim_dashboard.jpg" alt="Analytics" />
               </div>
               <div class="cs-body">
                 <div class="cs-date">10.18.24</div>
@@ -3132,9 +3138,7 @@
         </div>
       </div>
       <div>
-        <img
-          src="./Claims form case study.png"
-          alt="Case study visual" />
+        <img src="./Claims form case study.png" alt="Case study visual" />
       </div>
     </div>
   </section>
